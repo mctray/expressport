@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preload" href="/favicon.svg" as="image" type="image/svg+xml" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EspressPort Logistics Company</title>
+    <meta property="og:image" content="https://bolt.new/static/og_default.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://bolt.new/static/og_default.png">
+    <style>
+      .site-preloader {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        display: grid;
+        place-items: center;
+        overflow: hidden;
+        padding: 24px;
+        color: #f8fafc;
+        background:
+          radial-gradient(ellipse at 50% 40%, rgba(20, 184, 166, .2), transparent 42%),
+          linear-gradient(145deg, #062f2c 0%, #064e48 52%, #042f35 100%);
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+      .site-preloader::before,
+      .site-preloader::after {
+        position: absolute;
+        width: min(76vw, 560px);
+        aspect-ratio: 1;
+        border: 1px solid rgba(204, 251, 241, .09);
+        border-radius: 50%;
+        content: "";
+        pointer-events: none;
+      }
+      .site-preloader::after {
+        width: min(58vw, 420px);
+        border-color: rgba(204, 251, 241, .06);
+      }
+      .preloader-content {
+        position: relative;
+        z-index: 1;
+        width: min(100%, 390px);
+        text-align: center;
+        animation: preloader-arrive .7s cubic-bezier(.2,.8,.2,1) both;
+      }
+      .preloader-brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        font-size: clamp(23px, 6vw, 30px);
+        font-weight: 800;
+        letter-spacing: -.045em;
+      }
+      .preloader-brand img {
+        width: 46px;
+        height: 46px;
+        filter: drop-shadow(0 6px 16px rgba(251, 146, 60, .25));
+      }
+      .preloader-kicker {
+        margin: 38px 0 9px;
+        color: #99f6e4;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: .2em;
+        text-transform: uppercase;
+      }
+      .preloader-title {
+        margin: 0;
+        font-size: clamp(22px, 6vw, 30px);
+        font-weight: 700;
+        letter-spacing: -.04em;
+      }
+      .preloader-caption {
+        margin: 9px 0 29px;
+        color: rgba(204, 251, 241, .7);
+        font-size: 14px;
+      }
+      .preloader-route {
+        position: relative;
+        height: 34px;
+        margin: 0 4px;
+      }
+      .preloader-route::before {
+        position: absolute;
+        top: 17px;
+        right: 7px;
+        left: 7px;
+        border-top: 2px dashed rgba(204, 251, 241, .24);
+        content: "";
+      }
+      .preloader-origin,
+      .preloader-destination {
+        position: absolute;
+        top: 11px;
+        width: 13px;
+        height: 13px;
+        border: 3px solid #ccfbf1;
+        border-radius: 50%;
+        background: #0f766e;
+      }
+      .preloader-origin { left: 0; }
+      .preloader-destination {
+        right: 0;
+        border-color: #fed7aa;
+        background: #f97316;
+      }
+      .preloader-plane {
+        position: absolute;
+        top: 4px;
+        left: 0;
+        width: 29px;
+        height: 29px;
+        color: #fdba74;
+        animation: preloader-flight 2.4s cubic-bezier(.4,0,.2,1) infinite;
+      }
+      .preloader-status {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        margin-top: 22px;
+        color: rgba(240, 253, 250, .78);
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: .04em;
+      }
+      .preloader-status::before {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: #a3e635;
+        box-shadow: 0 0 0 0 rgba(163, 230, 53, .5);
+        content: "";
+        animation: preloader-pulse 1.7s ease-out infinite;
+      }
+      @keyframes preloader-flight {
+        0%, 100% { left: 0; transform: rotate(45deg); }
+        50% { left: calc(100% - 29px); transform: rotate(45deg); }
+      }
+      @keyframes preloader-pulse {
+        70%, 100% { box-shadow: 0 0 0 8px rgba(163, 230, 53, 0); }
+      }
+      @keyframes preloader-arrive {
+        from { opacity: 0; transform: translateY(12px) scale(.98); }
+        to { opacity: 1; transform: translateY(0) scale(1); }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .preloader-content { animation: none; }
+        .preloader-plane,
+        .preloader-status::before { animation: none; }
+      }
+    </style>
+</head>
+  <body>
+    <div id="root">
+      <main class="site-preloader" role="status" aria-live="polite" aria-label="Loading Express Port">
+        <div class="preloader-content">
+          <div class="preloader-brand">
+            <img src="/favicon.svg" alt="" width="46" height="46" />
+            <span>Express <span style="color:#fdba74">Port</span></span>
+          </div>
+          <p class="preloader-kicker">Global courier service</p>
+          <h1 class="preloader-title">Your next delivery starts here.</h1>
+          <p class="preloader-caption">Getting your shipping experience ready</p>
+          <div class="preloader-route" aria-hidden="true">
+            <span class="preloader-origin"></span>
+            <svg class="preloader-plane" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/>
+            </svg>
+            <span class="preloader-destination"></span>
+          </div>
+          <span class="preloader-status">Preparing your journey</span>
+        </div>
+      </main>
+    </div>
+    <noscript>
+      <p style="padding:2rem;text-align:center;font-family:system-ui,sans-serif">
+        Express Port needs JavaScript enabled to load the website.
+      </p>
+    </noscript>
+    <script type="module" src="/src/main.tsx"></script>
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/6ad7811ac562f034ca171c69/1k5ct0mpm';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>
+    <!--End of Tawk.to Script-->
+  </body>
+</html>
